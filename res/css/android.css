@@ -1,0 +1,39 @@
+
+/*.subbar_margin_top_android{*/
+    /*margin-top: 1rem;*/
+    /*background-color: teal;*/
+/*}*/
+
+.SHJ_sub_goods_type_android{
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.SHJ_font_weight_600_android{
+    font-weight: 600;
+}
+
+.SHJ_padding_top_0_android{
+   padding-top: 58px !important;
+}
+
+.SHJ_margin_top_1rem_android{
+    margin-top: 2rem;
+}
+
+.SHJ_bavbar_padding_left_1rem_android{
+    padding-left: 1rem !important;
+}
+
+.SHJ_send_code_buttom_android {
+    margin-top: -0.6rem !important;
+    width: 8rem  !important;
+}
+
+
+
+

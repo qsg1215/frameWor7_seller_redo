@@ -1,0 +1,23 @@
+
+.SHJ_background_color_ios{
+    background-color: #efeff4 !important;
+}
+
+.SHJ_margin_top_1rem_ios{
+    margin-top:1rem !important;
+}
+
+.SHJ_margin_top_3rem_ios{
+    margin-top:3rem !important;
+}
+
+.SHJ_border_bottom_ios{
+    border-bottom: 1px solid #ccc !important;
+}
+
+/*忘记密码*/
+.SHJ_send_code_buttom_ios {
+    margin-top: 0.5rem ;
+    width: 8rem;
+}
+

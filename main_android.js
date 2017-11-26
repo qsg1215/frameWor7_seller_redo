@@ -1,0 +1,3 @@
+
+import './res/js/app'
+
