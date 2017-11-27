@@ -4,8 +4,6 @@ var  sellerAppInit = new Framework7({
     material: true,
     modalTitle: 'seller',
     animateNavBackIcon: true,
-    precompileTemplates: true,
-    template7Pages: true,
     router: true,
     swipePanel: 'left',
     onAjaxStart: function (xhr) {

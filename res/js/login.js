@@ -27,7 +27,7 @@ tempaltePage(loginData,'body','index_android');
 $$(document).on('pageInit', '.page[data-page="index_android"]', function (e) {
  API.login({password: "123456",userName: "18328412017"})
  .then(function(data){
- console.log('第一次请求数据',data,foramteDate(1318781876))
+ console.log('第一',data,foramteDate(1318781876))
  })
 
  });
