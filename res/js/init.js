@@ -4,7 +4,7 @@
 
 import 'framework7';
 import {merageLanguage,tempaltePage,$$} from '../../libs/js/Util';
-var $$ = window.Dom7;
+var $M = window.Dom7;
 var  sellerAppInit = new Framework7({
     material: true,
     modalTitle: 'seller',
@@ -27,3 +27,4 @@ sellerAppInit.__proto__.device.android ? localStorage.platform = 'ANDROID' : und
 sellerAppInit.__proto__.device.ios ? localStorage.platform = 'IOS' : undefined;
 export var sellerApp = sellerAppInit;
 export var mainView = View;
+export var $$ = $M;

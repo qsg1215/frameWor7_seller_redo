@@ -1,9 +1,9 @@
 /**
  * Created by Administrator on 2017/11/25.
  */
-import {merageLanguage,tempaltePage,$$} from '../../libs/js/Util';
-import {loadPage} from '../../libs/js/Util';
+import {loadPage,$$} from '../../libs/js/Util';
 import * as API from '../../libs/js/API';
+import  './forget_passWord'
 import {sellerApp,mainView} from './init'
 /*$$(document).on('pageInit', '.page[data-page="index_android"]', function (e) {
  API.login({password: "123456",userName: "18328412017"})
@@ -58,11 +58,12 @@ $$('#forget_pwd_btn').click(function () {
      loadPage('res/html/forget_passWord.html')
 })
 
-$$(document).on('pageInit', '.page[data-page="index_android"]', function (e) {
 
-   /*初始化首页*/
+sellerApp.onPageInit('index_android',function () {
+    console.log("回来了");
+})
 
- });
+
 
 
 

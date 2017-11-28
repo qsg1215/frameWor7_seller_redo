@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/11/26.
  */
 import  axios from 'axios';
-import {sellerApp ,mainView} from '../../res/js/init'
+import {sellerApp} from '../../res/js/init'
 import {alert} from './Util'
 
 import  md5Hex  from 'md5-hex';

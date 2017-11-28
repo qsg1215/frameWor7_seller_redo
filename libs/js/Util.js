@@ -4,7 +4,7 @@
 import 'framework7';
 import  moment from 'moment';
 import  language from   '../i18n/language';
-import {sellerApp, mainView} from '../../res/js/init'
+import {sellerApp, mainView ,$$} from '../../res/js/init'
 /*
 * moment国际化
 * */
@@ -77,5 +77,20 @@ export  function loadPage (pageUrl) {
 export  function alert (tips) {
     sellerApp.alert(tips)
 }
+
+/*
+* 页面回退
+* @
+* pageName: 开始页面的page name, String;
+* pageUrl: 回退页面的地址
+* */
+
+export  function back (pageName,pageUrl) {
+    $$(document).on('click', '.page[data-page='+pageName+']  div.left', function (e) {
+        mainView.router.loadPage(pageUrl)
+    });
+}
+
+
 
 

@@ -5,7 +5,7 @@ import 'framework7';
 import  {alert} from './Util'
 var Framework7 = window.Framework7
 import  server from './server';
-var jwt = 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwOWNlZDI1OWQwZDc0OTMwOGU1YTg2ZWU3YTcxOWFmMiIsInN1YiI6IntcImlkXCI6MzE0Nzc0OTgsXCJ1c2VyTmFtZVwiOlwiMTgzMjg0MTIwMTdcIixcImFnZW50XCI6XCJ3ZWJcIn0ifQ.8LUw23h7CVekVCG9Ut5irV76hsryomTJxj3voz4nt5A'
+var jwt = localStorage.jwt;
 /*
 * 平台*/
 var source = localStorage.platform,
@@ -39,15 +39,13 @@ var config = {
     },
     timeout: 7000,
     withCredentials: false, // 默认的
-    baseURL:server.lineUrl,
+    baseURL:server.testUrl,
     // `auth` 表示应该使用 HTTP 基础验证，并提供凭据
     // 这将设置一个 `Authorization` 头，覆写掉现有的任意使用 `headers` 设置的自定义 `Authorization`头
-    // Authorization: jwt,
+    Authorization: jwt,
     responseType: 'json', // 默认的
     xsrfHeaderName: 'X-XSRF-TOKEN', // 默认的
-    // `maxContentLength` 定义允许的响应内容的最大尺寸
-    maxContentLength: 2000,
-    // `validateStatus` 定义对于给定的HTTP 响应状态码是 resolve 或 reject  promise 。如果 `validateStatus` 返回 `true` (或者设置为 `null` 或 `undefined`)，promise 将被 resolve; 否则，promise 将被 rejecte
+    maxContentLength: 20000,
     validateStatus: function (status) {
         return status >= 200 && status < 300; // 默认的
     }
