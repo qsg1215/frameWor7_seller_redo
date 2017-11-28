@@ -103,7 +103,7 @@
                                         <div class="item-media SHJ_padding_left_1em">	<i class="icon iconfont icon-wodeshj-icon-me-un SHJ_big_icon"></i></div>
                                         <div class="item-inner">
                                             <div class="item-input ">
-                                                <input class="SHJ_border" type="text" name="name">
+                                                <input class="SHJ_border loginInfo" type="text" name="userName">
                                             </div>
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@
                                         <div class="item-media SHJ_padding_left_1em">	<i class="icon iconfont icon-xiugaimimashj-icon-Mod SHJ_big_icon"></i></div>
                                         <div class="item-inner">
                                             <div class="item-input">
-                                                <input  class="SHJ_border" type="password" name="pwd">
+                                                <input  class="SHJ_border loginInfo" type="password" name="password">
                                             </div>
                                         </div>
                                     </div>
@@ -120,14 +120,12 @@
                             </ul>
                         </form>
                         <div class="content-block">
-                            <a href="res/html/order.html" id="login_btn" class="button button-big button-raised button-fill">{{login}}</a>
+                            <a  id="login_btn" class="button button-big button-raised button-fill" disabled>{{login}}</a>
                         </div>
                         <div class="content-block">
-                            <a href="res/html/forget_passWord.html" class="button button-big button-raised button-fill" >{{forget}}</a>
+                            <a  id="forget_pwd_btn"     href="res/html/forget_passWord.html" class="button button-big button-raised button-fill" >{{forget}}</a>
                         </div>
-                        <div class="content-block">
-                            <a href="res/html/forget_passWord.html" class="button button-big button-raised button-fill" >{{name}}</a>
-                        </div>
+
                     </div>
                 </div>
             </div>

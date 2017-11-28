@@ -2,6 +2,7 @@
  * Created by Administrator on 2017/11/26.
  */
 import 'framework7';
+import  {alert} from './Util'
 var Framework7 = window.Framework7
 import  server from './server';
 var jwt = 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwOWNlZDI1OWQwZDc0OTMwOGU1YTg2ZWU3YTcxOWFmMiIsInN1YiI6IntcImlkXCI6MzE0Nzc0OTgsXCJ1c2VyTmFtZVwiOlwiMTgzMjg0MTIwMTdcIixcImFnZW50XCI6XCJ3ZWJcIn0ifQ.8LUw23h7CVekVCG9Ut5irV76hsryomTJxj3voz4nt5A'

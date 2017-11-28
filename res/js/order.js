@@ -1,11 +1,6 @@
 import {merageLanguage,tempaltePage,$$} from '../../libs/js/Util';
-
 $$(document).on('pageInit', '.page[data-page="order"]', function (e) {
-
-    var orderPageData = {
-        name:'测试'
-    };
-    var  orderPage =  merageLanguage(orderPageData,'order');
+    console.log('orderpage')
+    var  orderPage =  merageLanguage('order',{name:"hahahaha"});
     tempaltePage(orderPage,'.page[data-page="order"]','orderPage');
-
 })
