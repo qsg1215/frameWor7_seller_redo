@@ -203,6 +203,14 @@ padding: 2.5rem 0;
     z-index: 1000;
 }
 
+/*
+验证码
+*/
+.SHJ_send_code_buttom{
+    overflow: inherit !important;
+     padding-right: 3rem;
+}
+
 /*商品列表*/
 .SHJ_good_info{
     display: flex !important;

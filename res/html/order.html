@@ -4,39 +4,44 @@
     <script type="text/template7" id="orderPage">
         <div class="tabs">
             <div id="tab9" class="tab active">
-                <!--导航栏-->
                 <div class="navbar">
                     <div class="navbar-inner SHJ_bavbar_padding_left_1rem_android">
-                        <div class="center">{{name}}1112</div>
+                        <div class="center">{{currentShopName}}</div>
                     </div>
                 </div>
                 <div class="SHJ_display_flex SHJ_text_align_center ">
                     <a href="res/html/take_away.html"  class="SHJ_display_block">
                         <div>
                             <div class="new_Number_Container">
-                                <div class="new_Number_icon">5</div>
+                                {{#if hasShop}}
+                                <div class="new_Number_icon">{{OrderNumber.takeAwayOrderNumber}}</div>
+                                {{/if}}
                                 <i class="icon SHJ_big_icon iconfont icon-shangjia-waimaishj-icon-fo SHJ_take_away_color SHJ_huge_icon" ></i>
                             </div>
-                            <div >外卖</div>
+                            <div >{{takeAway}}</div>
                         </div>
                     </a>
                     <a href="res/html/dish.html"  class="SHJ_display_block">
                         <div>
                             <div class="item new_Number_Container">
-                                <div class="new_Number_icon">5</div>
+                                {{#if hasShop}}
+                                <div class="new_Number_icon">{{OrderNumber.mealOrderNumber}}</div>
+                                {{/if}}
                                 <i class="icon SHJ_big_icon iconfont icon-shangjia-diancanshj-icon-de SHJ_diner_in_color SHJ_huge_icon" ></i>
                             </div>
-                            <div >点餐</div>
+                            <div >{{dine_in}}</div>
                         </div>
 
                     </a>
                     <a href="res/html/booking.html"  class="SHJ_display_block">
                         <div>
                             <div class="new_Number_Container">
-                                <div class="new_Number_icon">5</div>
+                                {{#if hasShop}}
+                                <div class="new_Number_icon">{{OrderNumber.bookingOrderNumber}}</div>
+                                {{/if}}
                                 <i class="icon SHJ_big_icon iconfont icon-shangjia-dingzuoshj-icon-Re SHJ_booking_color SHJ_huge_icon" ></i>
                             </div>
-                            <div >订座</div>
+                            <div >{{booking}}</div>
                         </div>
                     </a>
                 </div>
@@ -50,7 +55,7 @@
                                 <i class="icon icon-bars"></i>
                             </a>
                         </div>
-                        <div class="center">测试店铺名称</div>
+                        <div class="center">{{currentShopName}}</div>
                         <div class="right">
                             <a href="#" class="link icon-only">
                                 <i class="icon  iconfont icon-tianjiashj-icon-add SHJ_edit_icon"></i>
@@ -315,25 +320,34 @@
                     </ul>
                 </div>
                 <!--其他信息-->
-                <div class="list-block media-list">
+                <div class="list-block">
                     <ul>
                         <li>
                             <a href="res/html/set_passWorld.html" class="item-link item-content">
                                 <div class="item-media"><i class="icon iconfont icon-xiugaimimashj-icon-Mod SHJ_big_icon"></i></div>
                                 <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <div class="">密码</div>
-                                    </div>
+                                    <div class="item-title">密码</div>
+                                    <div class="item-after"></div>
                                 </div>
                             </a>
                         </li>
                         <li>
                             <a href="res/html/change_language.html" class="item-link item-content">
                                 <div class="item-media"><i class="icon iconfont icon-yuyanqiehuanshj-icon-lan SHJ_big_icon"></i></div>
-                                <div class="item-inner" >
-                                    <div class="item-title-row">
-                                        <div class="">语言</div>
-                                    </div>
+                                <div class="item-inner">
+                                    <div class="item-title">语言</div>
+                                    {{#if current_lang.iSauto}}
+                                    <div class="item-after">{{auto}}</div>
+                                    {{/if}}
+                                    {{#if current_lang.iSchinese}}
+                                    <div class="item-after">{{chinese}}</div>
+                                    {{/if}}
+                                    {{#if current_lang.iSenglish}}
+                                    <div class="item-after">{{english}}</div>
+                                    {{/if}}
+
+                                    <!--<div class="item-after">{{current_lang.iSenglish}}</div>-->
+
                                 </div>
                             </a>
                         </li>
@@ -341,25 +355,22 @@
                             <a href="res/html/push_message.html" class="item-link item-content">
                                 <div class="item-media"><i class="icon iconfont icon-xiaoxishj-icon-messa SHJ_big_icon"></i></div>
                                 <div class="item-inner">
-                                    <div class="item-title-row" >
-                                        <div class="">设置</div>
-                                    </div>
+                                    <div class="item-title">设置</div>
+                                    <div class="item-after"></div>
                                 </div>
                             </a>
                         </li>
                         <li>
                             <a href="res/html/about_us.html" class="item-link item-content">
-                                <div class="item-media"><i class="icon iconfont icon-xinxishj-icon-infor SHJ_big_icon"></i></div>
-                                <div class="item-inner" >
-                                    <div class="item-title-row">
-                                        <div class="">关于我们</div>
-                                    </div>
+                                <div class="item-media"><i class="icon iconfont icon-xinxishj-icon-infor SHJ_big_icon"></i></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title">关于我们</div>
+                                    <div class="item-after"></div>
                                 </div>
                             </a>
                         </li>
                     </ul>
                 </div>
-
                 <div class="content-block">
                     <a href="index_android.html" class="button button-big button-raised button-fill" >退出</a>
                 </div>
@@ -371,19 +382,19 @@
             <div class="toolbar-inner">
                 <a href="#tab9" class="tab-link active">
                     <i class="icon iconfont icon-dingdanshj-icon-order  SHJ_big_icon" ></i>
-                    <span class="tabbar-label">订单</span>
+                    <span class="tabbar-label">{{orders}}</span>
                 </a>
                 <a href="#tab10" class="tab-link">
                     <i class=" icon iconfont icon-waimaishj-icon-food SHJ_big_icon" ></i>
-                    <span class="tabbar-label">商品</span>
+                    <span class="tabbar-label">{{goods}}</span>
                 </a>
                 <a href="#tab11" class="tab-link">
                     <i class="icon iconfont icon-shangjiashj-icon-selle SHJ_big_icon" ></i>
-                    <span class="tabbar-label">商家</span>
+                    <span class="tabbar-label">{{merchant}}</span>
                 </a>
                 <a href="#tab12" class="tab-link">
                     <i class="icon iconfont icon-zhanghushj-icon-accou SHJ_big_icon" ></i>
-                    <span class="tabbar-label">个人中心</span>
+                    <span class="tabbar-label">{{me}}</span>
                 </a>
             </div>
 

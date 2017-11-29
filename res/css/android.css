@@ -1,8 +1,4 @@
 
-/*.subbar_margin_top_android{*/
-    /*margin-top: 1rem;*/
-    /*background-color: teal;*/
-/*}*/
 
 .SHJ_sub_goods_type_android{
     margin-top: 2rem;
@@ -28,12 +24,6 @@
 .SHJ_bavbar_padding_left_1rem_android{
     padding-left: 1rem !important;
 }
-
-.SHJ_send_code_buttom_android {
-    margin-top: -0.6rem !important;
-    width: 8rem  !important;
-}
-
 
 
 

@@ -2,10 +2,7 @@
  * Created by Administrator on 2017/11/26.
  */
 import 'framework7';
-import  {alert} from './Util'
-var Framework7 = window.Framework7
 import  server from './server';
-var jwt = localStorage.jwt;
 /*
 * 平台*/
 var source = localStorage.platform,
@@ -13,7 +10,7 @@ var source = localStorage.platform,
 /*
 * 语言
 * */
-var  lang =localStorage.lang && localStorage.lang == 'EN'? 'en_US': 'zh-en';
+var  lang =localStorage.lang && localStorage.lang == 'EN'? 'en_US': 'zh_CN';
 
 var config = {
     // `transformRequest` 允许在向服务器发送前，修改请求数据
@@ -27,22 +24,22 @@ var config = {
         // 对 data 进行任意转换处理
         return data;
     }],
-    paramsSerializer: function (params) {
+   /* paramsSerializer: function (params) {
         return Qs.stringify(params, {arrayFormat: 'brackets'})
-    },
+    },*/
     headers:{
         'version': 'v100',
         'Access-Control-Allow-Origin': '*',
         'Content-Type':'application/json',
         'source': source,
-        'lang': lang
+        'language': lang,
     },
     timeout: 7000,
     withCredentials: false, // 默认的
     baseURL:server.testUrl,
     // `auth` 表示应该使用 HTTP 基础验证，并提供凭据
     // 这将设置一个 `Authorization` 头，覆写掉现有的任意使用 `headers` 设置的自定义 `Authorization`头
-    Authorization: jwt,
+
     responseType: 'json', // 默认的
     xsrfHeaderName: 'X-XSRF-TOKEN', // 默认的
     maxContentLength: 20000,
@@ -51,17 +48,16 @@ var config = {
     }
 }
 
-export   function requestConfig (data,method,success,failed) {
-    var parm = {
-
-    }
-    if(!method){
-        parm.params =data;
+export   function requestConfig (data,method,token) {
+    var parm = {};
+    if(method == 'get'){
+        parm.params =data
     }else{
-        data = JSON.stringify(data);
-        parm.data = data;
+        parm.data = JSON.stringify(data)
     }
-    return   method &&  method !== 'get' ?  Object.assign(parm,{method:method },config) :   Object.assign(parm,{method:'get' },config)
+    token ? config.headers.Authorization = token : '';
+
+    return   Object.assign(parm,{method:method },config)
 }
 
 

@@ -2,24 +2,9 @@
  * Created by Administrator on 2017/11/25.
  */
 import {loadPage,$$} from '../../libs/js/Util';
-import * as API from '../../libs/js/API';
+import {login} from '../../libs/js/API';
 import  './forget_passWord'
-import {sellerApp,mainView} from './init'
-/*$$(document).on('pageInit', '.page[data-page="index_android"]', function (e) {
- API.login({password: "123456",userName: "18328412017"})
- .then(function(data){
- console.log('第一次请求数据',data)
- return    API.login(data)
- }).then(function(data){
- console.log('第二次请求数据',data)
- return    API.login({password: "123456",userName: "18328412017"})
- })
- .then(function(data){
- console.log('第三次请求数据',data)
- });
-
- });*/
-
+import {sellerApp} from './init'
 /*
 * 事件绑定
 *
@@ -39,11 +24,12 @@ $$('#login_btn').click(function(){
         userName:$$("input[name = 'userName']").val(),
         password:$$("input[name = 'password']").val()
     };
-    API.login(loginData)
+    login(loginData)
         .then(function(data){
             loadPage('./res/html/order.html');
-            console.log(data)
-            localStorage.jwt = data.data.jwt
+            localStorage.jwt = data.data.jwt;
+            sellerApp.globalData = {};
+            sellerApp.globalData.userInfo = data.data;
         })
         .catch(function(error){
             if(error.msg.indexOf('passWord')> -1 || error.msg.indexOf('密码') > -1){

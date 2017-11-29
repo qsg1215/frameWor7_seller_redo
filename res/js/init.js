@@ -3,19 +3,33 @@
  */
 
 import 'framework7';
-import {merageLanguage,tempaltePage,$$} from '../../libs/js/Util';
+import {merageLanguage,tempaltePage} from '../../libs/js/Util';
+if(navigator.language == 'zh-CN'){
+    var  modalTitle = '本地通',
+        modalButtonOk = '确定',
+        modalButtonCancel = '取消'
+}else{
+    var  modalTitle = 'seller',
+        modalButtonOk = 'ok',
+        modalButtonCancel = 'cancel'
+};
+
 var $M = window.Dom7;
 var  sellerAppInit = new Framework7({
     material: true,
-    modalTitle: 'seller',
+    modalTitle: modalTitle,
+    modalButtonOk:modalButtonOk,
+    modalButtonCancel:modalButtonCancel,
+    pushState:true,
     animateNavBackIcon: true,
     router: true,
+    notificationHold:5000,
     init:false,
     swipePanel: 'left',
-    onAjaxStart: function (xhr) {
+    onAjaxStart: function () {
         sellerAppInit.showIndicator();
     },
-    onAjaxComplete: function (xhr) {
+    onAjaxComplete: function () {
         sellerAppInit.hideIndicator();
     }
 });
