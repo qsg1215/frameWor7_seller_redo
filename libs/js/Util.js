@@ -115,6 +115,8 @@ export  function Reg (type,value,failed) {
     var  coderReg = /^[0-9]{4}$/;
    // 检测密码由6-21字母和数字组成，不能是纯数字或纯英文
     var passwordReg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+
+
     switch(type)
     {
         case 'phone':
