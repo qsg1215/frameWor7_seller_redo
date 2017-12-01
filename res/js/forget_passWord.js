@@ -67,7 +67,7 @@ sellerApp.onPageBeforeAnimation('forget_passWord',function () {
         var passwordCheckResult =   Reg('password',newPwd,function () {
             $$('#verification_code').val('');
         });
-        if(postData  && verification_code_CheckResult){
+        if(postData  && passwordCheckResult && verification_code_CheckResult){
             postData.code = verification_code;
            postData.password = md5Hex(newPwd).toUpperCase();
             reset_password(postData).then(function () {
