@@ -6,9 +6,9 @@ sellerApp.onPageInit('forget_passWord',function (e) {
     var  forget_passWord_page =  merageLanguage('forget_passWord');
     tempaltePage(forget_passWord_page,'.page[data-page="forget_passWord"]','forget_passWord');
 })
-var forget_password_page = {};
+var forget_password_page_scope = {};
 //匹配电话
-forget_password_page.checkPhone = function () {
+forget_password_page_scope.checkPhone = function () {
     var telephoneCode;
     var phone = $$('#reset_phone').val();
     var flag = Reg('phone',phone,function () {
@@ -25,7 +25,7 @@ forget_password_page.checkPhone = function () {
 
 };
 
-forget_password_page.countDown  = function () {
+forget_password_page_scope.countDown  = function () {
     var time = 60;
     $$('#getSMScode').attr("disabled", true);
     show('.SHJ_send_code_buttom',true);
@@ -46,17 +46,17 @@ forget_password_page.countDown  = function () {
 
 sellerApp.onPageBeforeAnimation('forget_passWord',function () {
     $$('#getSMScode').click(function () {
-       var postData =  forget_password_page.checkPhone()
+       var postData =  forget_password_page_scope.checkPhone()
         if(postData){
             get_SMScode(postData).then(function () {
                 notification(tips.sendCode);
-                forget_password_page.countDown()
+                forget_password_page_scope.countDown()
             })
         };
     });
 
     $$('#resetpwd_confirm').click(function () {
-        var postData =  forget_password_page.checkPhone();
+        var postData =  forget_password_page_scope.checkPhone();
         //匹配验证码
         var verification_code =  $$('#verification_code').val();
         var verification_code_CheckResult =   Reg('code',verification_code,function () {
