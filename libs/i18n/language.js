@@ -24,6 +24,12 @@ export default {
             chinese:'简体中文',
             auto:'auto'
         },
+        panel:{
+            saleIng:'saleIng',
+            manage_category:'manage category',
+            category:'category',
+            goods_type:'goods type'
+        },
         forget_passWord:{
             phone:'phone',
             new_pwd:'new Password',
@@ -38,6 +44,10 @@ export default {
             chinese:'简体中文',
             confirm : 'confirm',
             auto:'auto'
+        },
+        category_management:{
+            edit: 'edit',
+            delete:'delete'
         }
 
     },
@@ -64,7 +74,7 @@ export default {
             me:'个人中心',
             english:'englsih',
             chinese:'简体中文',
-            auto:'跟随系统'
+            auto:'跟随系统',
         },
         forget_passWord:{
             phone:'输入电话',
@@ -80,8 +90,18 @@ export default {
             chinese:'简体中文',
             confirm : '确认',
             auto:'跟随系统'
-
+        },
+        panel:{
+            saleIng:'出售中',
+            manage_category:'管理分类',
+            category:'种类',
+            goods_type:'商品分类'
+        },
+        category_management:{
+            edit: '编辑',
+            delete:'删除'
         }
+
     }
 }
 

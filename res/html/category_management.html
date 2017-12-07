@@ -1,19 +1,19 @@
 <div data-page="category_management" class="page">
-    <!--导航栏-->
+    <script  type="text/template7" id="category_management">
     <div class="navbar">
         <div class="navbar-inner">
-            <div class="left SHJ_bavbar_padding_left_1rem_android">
+            <div class="left">
                 <a href="res/html/order.html" class="link icon-only">
                     <i class="icon icon-back"></i>
                 </a>
             </div>
-            <div class="center">测试店铺名称</div>
+            <div class="center">{{currentShopName}}</div>
             <div class="right">
-                <a href="#" class="link icon-only">
+                <a  class="link icon-only">
                     <i class="icon  iconfont icon-tianjiashj-icon-add SHJ_edit_icon"></i>
                 </a>
-                <a href="#" class="link icon-only">
-                    <i class="icon iconfont icon-xuanzeshj-icon-selec toggle-sortable SHJ_edit_icon"></i>
+                <a class="link icon-only sort_good_type  toggle-sortable">
+                    <i class="icon iconfont icon-xuanzeshj-icon-selec SHJ_edit_icon"></i>
                 </a>
             </div>
         </div>
@@ -21,48 +21,24 @@
     <div class="page-content SHJ_padding_top_0_android">
         <div class="list-block sortable ">
             <ul >
-                <li class="swipeout">
-                    <div class="swipeout-content item-content" style="">
+                {{#each categoryData}}
+                <li class="swipeout sortableItem" data-id="{{id}}">
+                    <div class="swipeout-content item-content"  >
                         <div class="item-inner">
-                            <div class="item-title">Item with badge</div>
-                            <div class="item-after"><span class="badge bg-green">5</span></div>
+                            <div class="item-title">{{name}}</div>
+                            <div class="item-after"><span class="badge bg-green">{{count}}</span></div>
                         </div>
                     </div>
                     <div class="swipeout-actions-right">
-                        <a class=" bg-orange" >编辑</a><a>删除</a>
+                        <a class=" bg-orange" >{{edit}}</a><a>{{delete}}</a>
                     </div>
                     <div class="sortable-handler"></div>
                 </li>
-                <li class="swipeout">
-                    <div class="swipeout-content item-content" style="">
-                        <div class="item-inner">
-                            <div class="item-title">嘿嘿</div>
-                            <div class="item-after"><span class="badge bg-green">5</span></div>
-                        </div>
-                    </div>
-                    <div class="swipeout-actions-right">
-                        <a class=" bg-orange" >编辑</a><a>删除</a>
-                    </div>
-                    <div class="sortable-handler"></div>
-                </li>
-                <li class="swipeout">
-                    <div class="swipeout-content item-content" style="">
-                        <div class="item-inner">
-                            <div class="item-title">嘿嘿</div>
-                            <div class="item-after"><span class="badge bg-green">5</span></div>
-                        </div>
-                    </div>
-                    <div class="swipeout-actions-right">
-                        <a class=" bg-orange" >编辑</a><a>删除</a>
-                    </div>
-                    <div class="sortable-handler"></div>
-                </li>
-
-
-
+                {{/each}}
 
 
             </ul>
         </div>
     </div>
+    </script>
 </div>

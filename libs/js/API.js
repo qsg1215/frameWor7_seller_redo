@@ -158,6 +158,50 @@ export function reset_password(data){
     return promise;
 };
 
+//获取电铺下的商品分类
+
+export function get_goods_type(data) {
+    const promise = new Promise(function(resolve, reject){
+        axios(baseUrlConfigCate+'dishesType/shop/'+data.shopId,requestConfig(data,'get'))
+            .then(function(response) {
+                resolve(response.data);
+            })
+            .catch(function (error) {
+                reject(error);
+            });
+    });
+    return promise;
+}
+//统计电铺下面的菜品种类
+export function get_category_number(data) {
+    const promise = new Promise(function(resolve, reject){
+        axios(baseUrlConfigCate+'dishes/count/shop/'+data.shopId,requestConfig(data,'get'))
+            .then(function(response) {
+                resolve(response.data);
+            })
+            .catch(function (error) {
+                reject(error);
+            });
+    });
+    return promise;
+}
+
+
+//排序后的结果统计
+export function sort_category_number(data) {
+    const promise = new Promise(function(resolve, reject){
+        axios(baseUrlConfigCate+'dishesType/batch',requestConfig(data,'put'))
+            .then(function(response) {
+                resolve(response.data);
+            })
+            .catch(function (error) {
+                reject(error);
+            });
+    });
+    return promise;
+}
+
+
 
 
 

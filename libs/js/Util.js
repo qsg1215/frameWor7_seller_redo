@@ -55,8 +55,9 @@ export function merageLanguage(pageName,pageData) {
 *
 * */
 export function tempaltePage(Data,domSelector,templateID) {
-
-   var scriptContent = $$('#'+templateID).html();
+//依照传入的的三个参数的长短来判断传入的是Id还是模板字符串
+    var scriptContent;
+    templateID.length>40 ? scriptContent = templateID :  scriptContent = $$('#'+templateID).html();
    var templatedHtml = Template7(scriptContent,Data);
    $$(domSelector).html(templatedHtml);
 }
