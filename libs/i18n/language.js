@@ -5,7 +5,10 @@ export default {
             code_check:'Error verification code format',
             password_check:'Error password format',
             sendCode:'The verification code has been issued',
-            close:'Close'
+            close:'Close',
+            close_store:'are you sure wang to close this store?',
+            open_store:'are you sure wang to open this store?'
+
         },
         index:{
             login: 'Log in',
@@ -48,6 +51,11 @@ export default {
         category_management:{
             edit: 'edit',
             delete:'delete'
+        },
+        store_manage:{
+            open:'open',
+            close:'close',
+            store_manage:'store manage'
         }
 
     },
@@ -57,7 +65,9 @@ export default {
             code_check:'验证码格式错误',
             password_check:'密码格式错误',
             sendCode:'验证码已发送',
-            close:'关闭'
+            close:'关闭',
+            close_store:'你确定要歇业吗?',
+            open_store:'你确定要营业吗?'
         },
         index:{
             login: '登录',
@@ -100,6 +110,11 @@ export default {
         category_management:{
             edit: '编辑',
             delete:'删除'
+        },
+        store_manage:{
+            open:'营业',
+            close:'歇业',
+            store_manage:'店铺管理'
         }
 
     }

@@ -1,4 +1,6 @@
 <div data-page="store_manage" class="page">
+
+    <script  type="text/template7" id="store_manage">
     <div class="navbar">
         <div class="navbar-inner">
             <div class="left SHJ_bavbar_padding_left_1rem_android">
@@ -6,7 +8,7 @@
                     <i class="icon icon-back"></i>
                 </a>
             </div>
-            <div class="center">店铺管理</div>
+            <div class="center">{{store_manage}}</div>
         </div>
 
     </div>
@@ -15,24 +17,29 @@
             <div class="getList">
                 <div class="merchant_store_container">
                     <ul>
+                        {{#each storList}}
                         <li>
                             <div class=" SHJ_border">
                                 <div class="item-content">
                                     <div class="item-media">
-                                        <img width="100" height="100" class="item_img" src="http://bdtimage.saohuijia.com/FtXQH4XdgPVhKSQ7Mthd86ZjAyo0">
+                                        <img width="100" height="100" class="item_img" src="{{logo}}">
                                     </div>
                                     <div class="item-inner">
                                         <div class="item-title-row">
-                                            <div class="item-title">BDT Test TakeOut Shop Test Test Test Test language</div>
+                                            <div class="item-title">{{name}}</div>
                                         </div>
                                         <div class="item-text"></div>
                                         <div class="item-subtitle">
                                             <div>
                                                 <i class="icon iconfont icon-wodeshj-icon-me-un"></i>
-                                                <label >15</label>
+                                                <label >{{peopleNum}}</label>
                                                 <div class="row SHJ_float_right">
                                                     <div class="content-block">
-                                                      <a class="button  button-raised" >open</a>
+                                                        {{#if isOpen}}
+                                                         <a class="button  button-raised changeStoreStatus" data-status ="{{isOpen}}" data-id ="{{id}}" >{{open}}</a>
+                                                        {{else}}
+                                                        <a class="button  button-raised changeStoreStatus"  data-status ="{{isOpen}}"  data-id ="{{id}}" >{{close}}</a>
+                                                        {{/if}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -41,34 +48,7 @@
                                 </div>
                             </div>
                         </li>
-
-                        <li>
-                            <div class=" SHJ_border">
-                                <div class="item-content">
-                                    <div class="item-media">
-                                        <img width="100" height="100"  src="http://bdtimage.saohuijia.com/FndUHDB4jVnbTH50JRkHmIqRg_iB">
-                                    </div>
-                                    <div class="item-inner">
-                                        <div class="item-title-row">
-                                            <div class="item-title">本地通测试旅游店铺1</div>
-                                        </div>
-
-                                        <div class="item-text"></div>
-                                        <div class="item-subtitle">
-                                            <div>
-                                                <i class="icon iconfont icon-wodeshj-icon-me-un"></i>
-                                                <label >5</label>
-                                                <div class="row SHJ_float_right">
-                                                    <a class="button  button-raised" >open</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-
+                        {{/each}}
 
                     </ul>
 
@@ -76,4 +56,5 @@
             </div>
         </div>
     </div>
+   </script>
 </div>

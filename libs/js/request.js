@@ -36,7 +36,7 @@ var config = {
     },
     timeout: 7000,
     withCredentials: false, // 默认的
-    baseURL:server.testUrl,
+    baseURL:server.lineUrl,
     // `auth` 表示应该使用 HTTP 基础验证，并提供凭据
     // 这将设置一个 `Authorization` 头，覆写掉现有的任意使用 `headers` 设置的自定义 `Authorization`头
 

@@ -201,6 +201,20 @@ export function sort_category_number(data) {
     return promise;
 }
 
+//修改营业状态
+export  function modify_store_status(data) {
+    const promise = new Promise(function(resolve, reject){
+        axios(baseUrlConfigCommon+'shop/modify/status',requestConfig(data,'put'))
+            .then(function(response) {
+                resolve(response.data);
+            })
+            .catch(function (error) {
+                reject(error);
+            });
+    });
+    return promise;
+}
+
 
 
 

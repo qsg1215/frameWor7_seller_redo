@@ -91,7 +91,15 @@ export  function loadPage (pageUrl) {
 
 export  function alert (tips,success) {
     success ?  sellerApp.alert(tips,success) :  sellerApp.alert(tips)
+}
 
+/*
+对话框
+*@parm
+*
+* */
+export  function confirm (title,confirmCallback,cancelCallback) {
+    cancelCallback ? sellerApp.confirm(title, confirmCallback, cancelCallback) :sellerApp.confirm(title, confirmCallback)
 }
 
 /*

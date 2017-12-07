@@ -3,6 +3,7 @@ import {sellerApp} from './init';
 import {get_shop_list,get_order,get_goods_type,get_category_number} from '../../libs/js/API';
 import './change_language';
 import './category_management'
+import './store_manage'
 import templatePage from  './templatePage'
 
 
@@ -36,6 +37,7 @@ orderPageScope.initPage = function (getData,currentShop,change_language_data) {
 };
 
 orderPageScope.bindEvent = function () {
+    $$('.panel').off('opened');
     $$('.panel').on('opened',function () {
         var shopId = sellerApp.globalData.currentShop.id;
         var postData = {shopId:shopId};
@@ -54,10 +56,7 @@ orderPageScope.bindEvent = function () {
         })
     })
 }
-
-
-
-$$(document).on('pageInit', '.page[data-page="order"]', function (e) {
+sellerApp.onPageInit('order', function (e) {
     var postData = {
         id: sellerApp.globalData.userInfo.info.id,
         role:sellerApp.globalData.userInfo.role
