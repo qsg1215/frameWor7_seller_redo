@@ -1,6 +1,5 @@
 
 <div data-page="order" class="page">
-
     <script type="text/template7" id="orderPage">
         <div class="tabs">
             <div id="tab9" class="tab active">
@@ -13,9 +12,7 @@
                     <a href="res/html/take_away.html"  class="SHJ_display_block">
                         <div>
                             <div class="new_Number_Container">
-                                {{#if hasShop}}
                                 <div class="new_Number_icon">{{OrderNumber.takeAwayOrderNumber}}</div>
-                                {{/if}}
                                 <i class="icon SHJ_big_icon iconfont icon-shangjia-waimaishj-icon-fo SHJ_take_away_color SHJ_huge_icon" ></i>
                             </div>
                             <div >{{takeAway}}</div>
@@ -24,9 +21,7 @@
                     <a href="res/html/dish.html"  class="SHJ_display_block">
                         <div>
                             <div class="item new_Number_Container">
-                                {{#if hasShop}}
                                 <div class="new_Number_icon">{{OrderNumber.mealOrderNumber}}</div>
-                                {{/if}}
                                 <i class="icon SHJ_big_icon iconfont icon-shangjia-diancanshj-icon-de SHJ_diner_in_color SHJ_huge_icon" ></i>
                             </div>
                             <div >{{dine_in}}</div>
@@ -36,9 +31,7 @@
                     <a href="res/html/booking.html"  class="SHJ_display_block">
                         <div>
                             <div class="new_Number_Container">
-                                {{#if hasShop}}
                                 <div class="new_Number_icon">{{OrderNumber.bookingOrderNumber}}</div>
-                                {{/if}}
                                 <i class="icon SHJ_big_icon iconfont icon-shangjia-dingzuoshj-icon-Re SHJ_booking_color SHJ_huge_icon" ></i>
                             </div>
                             <div >{{booking}}</div>
@@ -67,32 +60,32 @@
                     </div>
                     <div class="subnavbar subbar_margin_top_android">
                         <div class="buttons-row">
-                            <a href="#tab21" class="button active">出售中</a>
-                            <a href="#tab22" class="button">已下架</a>
+                            <a href="#tab21" class="button active">{{sale}}</a>
+                            <a href="#tab22" class="button">{{not_sale}}</a>
                         </div>
                     </div>
                 </div>
                 <div class="tabs SHJ_padding_top_15rem">
                     <div id="tab21"  class="tab active">
-                        <div class="content-block-title SHJ_sub_goods_type_android">fdggdfgfsd</div>
+                        <div class="content-block-title currentCategory SHJ_sub_goods_type_android" data-id="{{category.id}}">{{category.name}}</div>
                         <div style="height:400px;" class="list-block media-list sortable SHJ_over_flow">
-                            <ul class="goods_list goods_index_container">
-
+                            <ul class="goods_dishes_container">
+                             {{#each disesListOnSale}}
+                                {{#each dishesList}}
                                 <li  class="swipeout" >
                                     <a class="swipeout-content item-content item-link SHJ_border">
                                         <div class="item-media">
-                                            <div class="img" style="background-image: url('http://bdtimage.saohuijia.com/FidugAUYsj6u4Y3zLIHQUV73vdGV');width:100px;height:100px;">
+                                            <div class="img" style="background-image: url({{attachList[0].serverUrl}}/{{attachList[0].serverName}});width:100px;height:100px;">
                                             </div>
                                         </div>
                                         <div class="item-inner SHJ_good_info" >
                                             <div >
-                                                <div class="item-title SHJ_font_weight_600_android">生肉</div>
+                                                <div class="item-title SHJ_font_weight_600_android">{{name}}</div>
                                             </div>
-                                            <div class="item-subtitle"><span >$0.01</span>
-                                                <del >$2</del>
+                                            <div class="item-subtitle"><span >${{price}}</span>
+                                                <del >${{oprice}}</del>
                                             </div>
-                                            <div>账户
-                                            </div>
+                                            <div>{{desc}}</div>
                                         </div>
                                     </a>
                                     <div class="swipeout-actions-right swipeout_add">
@@ -104,92 +97,8 @@
                                     </div>
                                     <div class="sortable-handler"></div>
                                 </li>
-
-                                <li  class="swipeout" >
-                                    <a class="swipeout-content item-content item-link SHJ_border">
-                                        <div class="item-media">
-                                            <div class="img" style="background-image: url('http://bdtimage.saohuijia.com/FidugAUYsj6u4Y3zLIHQUV73vdGV');width:100px;height:100px;">
-                                            </div>
-                                        </div>
-                                        <div class="item-inner SHJ_good_info" >
-                                            <div >
-                                                <div class="item-title SHJ_font_weight_600_android">生肉</div>
-                                            </div>
-                                            <div class="item-subtitle"><span >$0.01</span>
-                                                <del >$2</del>
-                                            </div>
-                                            <div>账户
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="swipeout-actions-right swipeout_add">
-                                        <a href="res/html/goods_manage.html" class="bg-orange" >编辑</a>
-
-                                        <a  class="bg-gray">下架</a>
-
-                                        <a  class="bg-red" >删除</a>
-                                    </div>
-                                    <div class="sortable-handler"></div>
-                                </li>
-
-                                <li  class="swipeout" >
-                                    <a class="swipeout-content item-content item-link SHJ_border">
-                                        <div class="item-media">
-                                            <div class="img" style="background-image: url('http://bdtimage.saohuijia.com/FidugAUYsj6u4Y3zLIHQUV73vdGV');width:100px;height:100px;">
-                                            </div>
-                                        </div>
-                                        <div class="item-inner SHJ_good_info" >
-                                            <div >
-                                                <div class="item-title SHJ_font_weight_600_android">生肉</div>
-                                            </div>
-                                            <div class="item-subtitle"><span >$0.01</span>
-                                                <del >$2</del>
-                                            </div>
-                                            <div>账户
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="swipeout-actions-right swipeout_add">
-                                        <a href="res/html/goods_manage.html" class="bg-orange" >编辑</a>
-
-                                        <a  class="bg-gray">下架</a>
-
-                                        <a  class="bg-red" >删除</a>
-                                    </div>
-                                    <div class="sortable-handler"></div>
-                                </li>
-
-                                <li  class="swipeout" >
-                                    <a class="swipeout-content item-content item-link SHJ_border">
-                                        <div class="item-media">
-                                            <div class="img" style="background-image: url('http://bdtimage.saohuijia.com/FidugAUYsj6u4Y3zLIHQUV73vdGV');width:100px;height:100px;">
-                                            </div>
-                                        </div>
-                                        <div class="item-inner SHJ_good_info" >
-                                            <div >
-                                                <div class="item-title">生肉</div>
-                                            </div>
-                                            <div class="item-subtitle"><span >$0.01</span>
-                                                <del >$2</del>
-                                            </div>
-                                            <div>账户
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="swipeout-actions-right swipeout_add">
-                                        <a href="res/html/goods_manage.html" class="bg-orange" >编辑</a>
-
-                                        <a  class="bg-gray">下架</a>
-
-                                        <a  class="bg-red" >删除</a>
-                                    </div>
-                                    <div class="sortable-handler"></div>
-                                </li>
-
-
-
-
-
+                                {{/each}}
+                             {{/each}}
                             </ul>
                         </div>
                     </div>
@@ -299,7 +208,7 @@
             <div id="tab12" class="tab">
                 <div class="navbar">
                     <div class="navbar-inner">
-                        <div class="center">个人中心</div>
+                        <div class="center">{{me}}</div>
                     </div>
                 </div>
                 <!--头像-->
@@ -323,10 +232,10 @@
                 <div class="list-block">
                     <ul>
                         <li>
-                            <a href="res/html/set_passWorld.html" class="item-link item-content">
+                            <a href="res/html/set_password.html" class="item-link item-content">
                                 <div class="item-media"><i class="icon iconfont icon-xiugaimimashj-icon-Mod SHJ_big_icon"></i></div>
                                 <div class="item-inner">
-                                    <div class="item-title">密码</div>
+                                    <div class="item-title">{{password}}</div>
                                     <div class="item-after"></div>
                                 </div>
                             </a>
@@ -335,7 +244,7 @@
                             <a href="res/html/change_language.html" class="item-link item-content">
                                 <div class="item-media"><i class="icon iconfont icon-yuyanqiehuanshj-icon-lan SHJ_big_icon"></i></div>
                                 <div class="item-inner">
-                                    <div class="item-title">语言</div>
+                                    <div class="item-title">{{language}}</div>
                                     {{#if current_lang.iSauto}}
                                     <div class="item-after">{{auto}}</div>
                                     {{/if}}
@@ -355,7 +264,7 @@
                             <a href="res/html/push_message.html" class="item-link item-content">
                                 <div class="item-media"><i class="icon iconfont icon-xiaoxishj-icon-messa SHJ_big_icon"></i></div>
                                 <div class="item-inner">
-                                    <div class="item-title">设置</div>
+                                    <div class="item-title">{{settings}}</div>
                                     <div class="item-after"></div>
                                 </div>
                             </a>
@@ -364,7 +273,7 @@
                             <a href="res/html/about_us.html" class="item-link item-content">
                                 <div class="item-media"><i class="icon iconfont icon-xinxishj-icon-infor SHJ_big_icon"></i></i></div>
                                 <div class="item-inner">
-                                    <div class="item-title">关于我们</div>
+                                    <div class="item-title">{{about_us}}</div>
                                     <div class="item-after"></div>
                                 </div>
                             </a>
@@ -372,7 +281,10 @@
                     </ul>
                 </div>
                 <div class="content-block">
-                    <a href="index_android.html" class="button button-big button-raised button-fill" >退出</a>
+                    <a  class="button button-big button-raised button-fill" >{{log_out}}</a>
+                </div>
+                <div class="content-block">
+                    <a id="switch_accont" href="index_android.html" class="button button-big button-raised button-fill" >{{switch_accont}}</a>
                 </div>
 
             </div>

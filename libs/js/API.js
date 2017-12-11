@@ -164,6 +164,10 @@ export function get_goods_type(data) {
     const promise = new Promise(function(resolve, reject){
         axios(baseUrlConfigCate+'dishesType/shop/'+data.shopId,requestConfig(data,'get'))
             .then(function(response) {
+                var lang = requestConfig(data,'get').headers.language;
+                if(lang == 'en_US'){
+                    response.data.data = response.data.data.map(function (item) {item.name  = item.nameEng;return item})
+                }
                 resolve(response.data);
             })
             .catch(function (error) {
@@ -205,6 +209,34 @@ export function sort_category_number(data) {
 export  function modify_store_status(data) {
     const promise = new Promise(function(resolve, reject){
         axios(baseUrlConfigCommon+'shop/modify/status',requestConfig(data,'put'))
+            .then(function(response) {
+                resolve(response.data);
+            })
+            .catch(function (error) {
+                reject(error);
+            });
+    });
+    return promise;
+}
+
+//获取分类下面的菜品列表
+export  function get_under_category_dishesList(data) {
+    const promise = new Promise(function(resolve, reject){
+        axios(baseUrlConfigCate+'dishes/dishType/'+data.id,requestConfig(data,'get'))
+            .then(function(response) {
+                resolve(response.data);
+            })
+            .catch(function (error) {
+                reject(error);
+            });
+    });
+    return promise;
+}
+
+//修改密码
+export  function change_password (data) {
+    const promise = new Promise(function(resolve, reject){
+        axios(baseUrlConfigCommon+'user/modifyPasswordByOld',requestConfig(data,'put'))
             .then(function(response) {
                 resolve(response.data);
             })

@@ -6,8 +6,11 @@ export default {
             password_check:'Error password format',
             sendCode:'The verification code has been issued',
             close:'Close',
-            close_store:'are you sure wang to close this store?',
-            open_store:'are you sure wang to open this store?'
+            close_store:'are you sure want to close this store?',
+            open_store:'are you sure want to open this store?',
+            change_password_tips:'change password successfully',
+            swtich_account:'are you sure want to swtich current account?'
+
 
         },
         index:{
@@ -25,7 +28,21 @@ export default {
             me:'me',
             english:'englsih',
             chinese:'简体中文',
-            auto:'auto'
+            auto:'auto',
+            sale:'In the sale',
+            not_sale:'off the sale',
+            no_shop:'no Shop',
+            switch_accont:'switch accont',
+            log_out:'log out',
+            me:'me',
+            password:'password',
+            language:'language',
+            settings:'settings',
+            about_us:'about us',
+            log_out:'log out',
+            switch_accont:'switch accont'
+
+
         },
         panel:{
             saleIng:'saleIng',
@@ -56,6 +73,16 @@ export default {
             open:'open',
             close:'close',
             store_manage:'store manage'
+        },
+        set_password:{
+            set_password: 'set password',
+            old_password: 'old password',
+            input_old_password: 'input old password',
+            input_new_password: 'input new password',
+            new_password:'new password',
+            confirm_password: 'confirm password',
+            confirm_password_agian:'confirm password agian',
+            confirm:'confirm'
         }
 
     },
@@ -67,7 +94,10 @@ export default {
             sendCode:'验证码已发送',
             close:'关闭',
             close_store:'你确定要歇业吗?',
-            open_store:'你确定要营业吗?'
+            open_store:'你确定要营业吗?',
+            change_password_tips:'密码修改成功!',
+            swtich_account:'确定退出当前账号吗?'
+
         },
         index:{
             login: '登录',
@@ -85,6 +115,18 @@ export default {
             english:'englsih',
             chinese:'简体中文',
             auto:'跟随系统',
+            sale:'出售中',
+            not_sale:'已下架',
+            no_shop:'无店铺',
+            switch_accont:'切换账户',
+            log_out:'退出登录',
+            me:'个人中心',
+            password:'修改密码',
+            language:'切换语言',
+            settings:'设置',
+            about_us:'关于我们',
+            log_out:'退出登录',
+            switch_accont:'切换账号'
         },
         forget_passWord:{
             phone:'输入电话',
@@ -112,9 +154,19 @@ export default {
             delete:'删除'
         },
         store_manage:{
-            open:'营业',
-            close:'歇业',
-            store_manage:'店铺管理'
+            open: '营业',
+            close: '歇业',
+            store_manage: '店铺管理'
+        },
+        set_password:{
+            set_password: '设置密码',
+            old_password: '旧密码',
+            input_old_password: '输入旧密码',
+            input_new_password: '输入新密码',
+            new_password:'新密码',
+            confirm_password: '确认密码',
+            confirm_password_agian:'再次确认密码',
+            confirm:'确认'
         }
 
     }

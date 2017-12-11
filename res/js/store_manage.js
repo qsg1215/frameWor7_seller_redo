@@ -68,7 +68,7 @@ store_manage_scope.reInitPage = function (storeList,type) {
 
 sellerApp.onPageInit('store_manage',function () {
     //过滤禁用状态的店铺
-    var storList = sellerApp.globalData.shopList.filter(function (item) {
+    var    storList = sellerApp.globalData.shopList.filter(function (item) {
         if(item.status != 'TYPE_BAN'){
             return true
         };

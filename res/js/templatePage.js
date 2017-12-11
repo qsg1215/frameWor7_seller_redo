@@ -15,7 +15,7 @@ export default {
         <div class="list-block">
             <ul>
              {{#each panelData}}
-                <li >
+                <li data-name="{{name}}" data-id="{{id}}" class="categoryItem" >
                     <a class="item-link item-content">
                         <div class="item-inner">
                             <div class="item-title">{{name}}</div>
@@ -74,5 +74,30 @@ export default {
         {{/each}}
 
     </ul>
+    `,
+    noShop:`
+       <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"></div>
+                    <div class="center">{{no_shop}}</div>
+                </div>
+            </div>
+            <div class="item-content">
+                <div class="item-media SHJ_padding_left_1em">	<i class="icon iconfont icon-wodeshj-icon-me-un SHJ_big_icon"></i></div>
+                <div class="item-inner">
+                    <div class="item-input ">
+                        <input class="SHJ_border loginInfo" value="18328412017" type="text" name="userName">
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                 <div class="content-block">
+                    <a  id="change_user" class="button button-big button-raised button-fill ">{{switch_accont}}</a>
+                </div>
+                <div class="content-block">
+                    <a  id="check_out-app"    class="button button-big button-raised button-fill " >{{log_out}}</a>
+                </div>
+            </div>
+           
     `
 }
