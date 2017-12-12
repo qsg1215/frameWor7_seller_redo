@@ -7,6 +7,7 @@ category_management_scopr.sortable = false;
 
 category_management_scopr.bindEvent = function (categoryData) {
     //排序
+    $$('.sort_good_type').off('click');
     $$('.sort_good_type').click(function () {
         category_management_scopr.sortable =  !category_management_scopr.sortable;
        if( !category_management_scopr.sortable){
@@ -25,6 +26,48 @@ category_management_scopr.bindEvent = function (categoryData) {
               //排序成功
            })
        }
+    });
+    $$('.add_good_type').off('click')
+    $$('.add_good_type').click(function () {
+        var modal = sellerApp.modal({
+            title: '添加分类',
+            afterText:  `
+            <ul class="SHJ_padding0">
+                <li class="SHJ_delete_listStyle SHJ_margin_bottom_1rem">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">分类名称(中文)</div>
+                      <div class="item-input SHJ_border">
+                        <input class="SHJ_input_style " type="text" name="typeName" >
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="SHJ_delete_listStyle">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">分类名称(英文)</div>
+                      <div class="item-input SHJ_border">
+                         <input class="SHJ_input_style" type="text" name="typeName" >
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+         `,
+            buttons: [
+                {
+                    text: '取消'
+                },
+                {
+                    text: '保存',
+                    bold: true,
+                    onClick: function () {
+                       console.log('you click baocun ')
+                    }
+                },
+            ]
+        })
     })
 }
 

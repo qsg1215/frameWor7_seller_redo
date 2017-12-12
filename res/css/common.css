@@ -353,6 +353,16 @@ div .item-inner.SHJ_good_info::after{
     background-color: red;
 }
 
+/*
+添加分类
+*/
+.SHJ_delete_listStyle{
+    list-style: none !important;
+}
+.SHJ_input_style{
+    border:none  !important;
+}
+
 
 
 

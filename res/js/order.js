@@ -8,6 +8,7 @@ import './set_password'
 import templatePage from  './templatePage';
 
 
+
 //存在店铺的情况
 var orderPageScope = {};
 orderPageScope.initPage = function (getData,currentShop,change_language_data) {
@@ -44,7 +45,10 @@ orderPageScope.initPage = function (getData,currentShop,change_language_data) {
                 category:  category.category,
                 currentShopName:currentShop.name,
                 OrderNumber:OrderNumber,
-                current_lang:change_language_data
+                current_lang:change_language_data,
+                userLogo:sellerApp.globalData.userInfo.info.headImageUrl,
+                userName:sellerApp.globalData.userInfo.info.nickname,
+                role:sellerApp.globalData.userInfo.role
             }
             var  orderPage =  merageLanguage('order',data);
             tempaltePage(orderPage,'.page[data-page="order"]','orderPage');
@@ -151,7 +155,6 @@ sellerApp.onPageInit('order', function (e) {
              var noShopTemplate = templatePage.noShop;
             tempaltePage(orderPage,'.page[data-page="order"]',noShopTemplate);
         };
-
     })
 
 });

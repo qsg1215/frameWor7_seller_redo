@@ -44,7 +44,6 @@ $$('#forget_pwd_btn').click(function () {
      loadPage('res/html/forget_passWord.html')
 })
 
-
 sellerApp.onPageInit('index_android',function () {
     console.log("回来了");
 })
