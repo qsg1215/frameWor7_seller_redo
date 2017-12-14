@@ -63,7 +63,6 @@ export function get_shop_list(data){
 
     var config = requestConfig(data,'post',token);
     config.headers.language = lang
-    console.log('店铺列请求',config);
     const promise = new Promise(function(resolve, reject){
         axios(baseUrlConfigCommon+'shop/get_shops_list',config)
             .then(function(response) {
@@ -260,7 +259,19 @@ export function delete_dishesType(urldata,data) {
     });
     return promise;
 }
-
+//获取外卖店铺统计情况
+export function get_store_sale(data) {
+    const promise = new Promise(function(resolve, reject){
+        axios(baseUrlConfigCate+'takeOutOrder/stat4shop',requestConfig(data,'get'))
+            .then(function(response) {
+                resolve(response.data);
+            })
+            .catch(function (error) {
+               reject(error);
+            });
+    });
+    return promise;
+}
 
 
 

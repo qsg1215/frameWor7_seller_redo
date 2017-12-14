@@ -118,6 +118,10 @@ export  function back (pageName,pageUrl) {
 
 /*
 *  正则匹配
+*  @params
+*  type  string 匹配的类型
+*  value string 匹配的值,
+*  failed   function 匹配失败的回调
 * */
 export  function Reg (type,value,failed) {
     var phoneReg = new RegExp(/^((1[3,5,8][0-9])|(14[5,7])|(16[6])|(17[0,6,7,8])|(19[7,8,9]))\d{8}$/);
@@ -152,6 +156,8 @@ export  function Reg (type,value,failed) {
 
 /*
 * 通知
+* @params
+* message string 通知信息
 * */
 export function notification (message) {
     sellerApp.addNotification({
@@ -166,14 +172,22 @@ export function notification (message) {
 
 /*
 显示隐藏元素
+@params
+ DOMselector,css选择器,
+ ishow boolean 是否显示
 * */
 
-export function show (DOmselector,isShow) {
-    isShow? $$(DOmselector).css({display:'block'}) :  $$(DOmselector).css({display:'none'})
+export function show (DOMselector,isShow) {
+    isShow? $$(DOMselector).css({display:'block'}) :  $$(DOmselector).css({display:'none'})
 }
 
 /*
 * 编辑添加模态框
+* @params
+* title String 模态框标题
+* text String 模板字符串 模板主体内容
+* confirm, 确定回调
+* cancel, 取消回调
 * */
 
 export function edittable_modal (title,text,confirm,cancel) {
@@ -195,6 +209,21 @@ export function edittable_modal (title,text,confirm,cancel) {
             },
         ]
     });
+
+}
+
+/*
+*处理金额的数据格式
+* @parmas
+* number Number 待处理的数字
+* */
+
+export function formate_amount (number) {
+    var number = Number(number);
+    var  numberString =String(number.toFixed(3)) ;
+    var   NewNumber = Number(numberString.substr(0,numberString.length-1));
+    console.log( typeof  NewNumber.toFixed(2))
+     return  NewNumber.toFixed(2);
 
 }
 

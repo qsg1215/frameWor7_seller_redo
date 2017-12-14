@@ -13,7 +13,12 @@ export default {
             add_goods_type:'add goodsType',
             cancel:'cancel',
             confirm:'confirm',
-            delete_current_goods_type:'are you sure want to delete curent goodsType?'
+            delete_current_goods_type:'are you sure want to delete curent goodsType?',
+            reservation:'reservation',
+            order:'order',
+            takeaway:'takeaway',
+            sales:'sales(part)',
+            sales_volume:'sales volume($)'
 
         },
         index:{
@@ -24,7 +29,7 @@ export default {
         order:{
             takeAway: 'takeAway',
             dine_in:'dine_in',
-            booking: 'booking',
+            booking: 'Reservation',
             orders: 'orders',
             goods: 'booking',
             merchant: 'merchant',
@@ -90,7 +95,13 @@ export default {
             confirm_password: 'confirm password',
             confirm_password_agian:'confirm password agian',
             confirm:'confirm',
-
+        },
+        business_analysis:{
+            business_analysis:'business analysis',
+            three_day:'three',
+            near_week:'week',
+            near_month:'month',
+            custom:'custom',
         }
 
     },
@@ -108,9 +119,12 @@ export default {
             add_goods_type:'添加分类',
             cancel:'取消',
             confirm:'确定',
-            delete_current_goods_type:'确定要删除当前分类吗?'
-
-
+            delete_current_goods_type:'确定要删除当前分类吗?',
+            reservation:'订座',
+            order:'点餐',
+            takeaway:'外卖',
+            sales:'销量(份)',
+            sales_volume:'销量($)'
         },
         index:{
             login: '登录',
@@ -183,6 +197,13 @@ export default {
             confirm_password: '确认密码',
             confirm_password_agian:'再次确认密码',
             confirm:'确认'
+        },
+        business_analysis:{
+            business_analysis:'营业分析',
+            three_day:'近三天',
+            near_week:'近一周',
+            near_month:'近一个月',
+            custom:'自定义',
         }
 
     }

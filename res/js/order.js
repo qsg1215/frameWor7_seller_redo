@@ -4,7 +4,8 @@ import {get_shop_list,get_order,get_goods_type,get_category_number,get_under_cat
 import './change_language';
 import './category_management';
 import './store_manage';
-import './set_password'
+import './set_password';
+import './business_analysis';
 import templatePage from  './templatePage';
 
 
