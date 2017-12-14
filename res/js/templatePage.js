@@ -99,5 +99,30 @@ export default {
                 </div>
             </div>
            
+    `,
+    addGoodsTypeMoadl:`
+   
+            <ul class="SHJ_padding0">
+                <li class="SHJ_delete_listStyle SHJ_margin_bottom_1rem">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label" id="goodsTypeName_CN"></div>
+                      <div class="item-input SHJ_border">
+                        <input class="SHJ_input_style " type="text" name="typeName" >
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="SHJ_delete_listStyle">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label" id="goodsTypeName_EN"></div>
+                      <div class="item-input SHJ_border">
+                         <input class="SHJ_input_style" type="text" name="typeName" >
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
     `
 }

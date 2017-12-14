@@ -24,10 +24,9 @@ axios.interceptors.request.use(function (config) {
 axios.interceptors.response.use(function (response) {
     console.log('======>接口地址',response.request.responseURL)
     console.log('======>返回数据',response.data)
-    if(response.data.code >300){
-        sellerApp.hideIndicator();
+    if(response.data.code >300 ){
         alert(response.data.msg)
-        return Promise.reject(response.data);
+       return Promise.reject(response.data);
     }
     sellerApp.hideIndicator();
     return response;
@@ -242,6 +241,21 @@ export  function change_password (data) {
             })
             .catch(function (error) {
                 reject(error);
+            });
+    });
+    return promise;
+}
+
+//删除菜分类
+export function delete_dishesType(urldata,data) {
+    const promise = new Promise(function(resolve, reject){
+        axios(baseUrlConfigCate+'dishesType/' + urldata.shopId + "/shop/" + urldata.id,requestConfig(data,'put'))
+            .then(function(response) {
+                resolve(response.data);
+            })
+            .catch(function (error) {
+                sellerApp.hideIndicator();
+               // reject(error);
             });
     });
     return promise;

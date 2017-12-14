@@ -9,8 +9,11 @@ export default {
             close_store:'are you sure want to close this store?',
             open_store:'are you sure want to open this store?',
             change_password_tips:'change password successfully',
-            swtich_account:'are you sure want to swtich current account?'
-
+            swtich_account:'are you sure want to swtich current account?',
+            add_goods_type:'add goodsType',
+            cancel:'cancel',
+            confirm:'confirm',
+            delete_current_goods_type:'are you sure want to delete curent goodsType?'
 
         },
         index:{
@@ -67,7 +70,11 @@ export default {
         },
         category_management:{
             edit: 'edit',
-            delete:'delete'
+            delete:'delete',
+            addGoodstype:'add goodsType',
+            goodsTypeName_CN:'goods TypeName(chinese)',
+            goodsTypeName_EN:'goods TypeName(english)',
+
         },
         store_manage:{
             open:'open',
@@ -82,7 +89,8 @@ export default {
             new_password:'new password',
             confirm_password: 'confirm password',
             confirm_password_agian:'confirm password agian',
-            confirm:'confirm'
+            confirm:'confirm',
+
         }
 
     },
@@ -96,7 +104,12 @@ export default {
             close_store:'你确定要歇业吗?',
             open_store:'你确定要营业吗?',
             change_password_tips:'密码修改成功!',
-            swtich_account:'确定退出当前账号吗?'
+            swtich_account:'确定退出当前账号吗?',
+            add_goods_type:'添加分类',
+            cancel:'取消',
+            confirm:'确定',
+            delete_current_goods_type:'确定要删除当前分类吗?'
+
 
         },
         index:{
@@ -151,7 +164,10 @@ export default {
         },
         category_management:{
             edit: '编辑',
-            delete:'删除'
+            delete: '删除',
+            addGoodstype: '添加分类',
+            goodsTypeName_CN: '分类名称(中文)',
+            goodsTypeName_EN: '分类名称(英文)',
         },
         store_manage:{
             open: '营业',

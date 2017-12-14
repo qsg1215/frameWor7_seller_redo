@@ -172,4 +172,31 @@ export function show (DOmselector,isShow) {
     isShow? $$(DOmselector).css({display:'block'}) :  $$(DOmselector).css({display:'none'})
 }
 
+/*
+* 编辑添加模态框
+* */
+
+export function edittable_modal (title,text,confirm,cancel) {
+    sellerApp.modal({
+        title: title,
+        text:text,
+        buttons: [
+            {
+                text:tips.cancel,
+                onClick: function () {
+                   cancel ? cancel() : ''
+                }
+            },
+            {
+                text: tips.confirm,
+                onClick: function () {
+                    confirm ? confirm() : ''
+                }
+            },
+        ]
+    });
+
+}
+
+
 
