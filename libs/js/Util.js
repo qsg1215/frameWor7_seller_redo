@@ -220,10 +220,9 @@ export function edittable_modal (title,text,confirm,cancel) {
 
 export function formate_amount (number) {
     var number = Number(number);
-    var  numberString =String(number.toFixed(3)) ;
-    var   NewNumber = Number(numberString.substr(0,numberString.length-1));
-    console.log( typeof  NewNumber.toFixed(2))
-     return  NewNumber.toFixed(2);
+    var  numberString =String(number.toFixed(3));
+    var   NewNumber = parseFloat(Number(numberString.substr(0,numberString.length-1)).toFixed(2));
+    return  NewNumber
 
 }
 

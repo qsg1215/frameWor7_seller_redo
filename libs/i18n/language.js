@@ -124,7 +124,7 @@ export default {
             order:'点餐',
             takeaway:'外卖',
             sales:'销量(份)',
-            sales_volume:'销量($)'
+            sales_volume:'销售额($)'
         },
         index:{
             login: '登录',
