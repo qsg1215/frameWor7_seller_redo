@@ -124,5 +124,44 @@ export default {
                   </div>
                 </li>
               </ul>
+    `,
+    //定做订单列表单条记录模板
+    booking_order_template: `
+     <li>
+            <ul class="SHJ_padding0">
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title"><span>预约</span>:{{formateMealAt}}</div>
+                        <div class="item-after">待结单</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                      {{#if hasSex}}
+                         {{#if isFemale}}
+                          <div class="item-title">{{bookingName}}<span>女士</span></div>
+                          {{else}}
+                           <div class="item-title">{{bookingName}}<span>先生</span></div>
+                          {{/if}}
+                      {{else}}
+                       <div class="item-title">{{bookingName}}</div>
+                       {{/if}}
+                        <div class="item-after">
+                            <a href="tel:{{mobile}}">
+                                <div class="SHJ__phone_style">
+                                    <i class="icon  iconfont  icon-dianhuashj-icon-tel"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li style="padding-left:16px;padding-right: 16px;">
+                    <p class="buttons-row" >
+                        <a href="#" class="button button-raised" data-id="{{id}}">接单</a>
+                        <a href="#" class="button button-raised" data-id="{{id}}">拒单</a>
+                    </p>
+                </li>
+            </ul>
+        </li>
     `
 }

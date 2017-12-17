@@ -29,6 +29,7 @@ var Template7 = window.Template7;
 export function merageLanguage(pageName,pageData) {
     if(localStorage.langType){
         var lang  =  navigator.language == 'zh-CN' ? 'CH' : 'EN';
+        lang == 'CH' ?moment.locale('zh_cn'):moment.locale('en')
         window.tips =language[lang].tips;
         pageData  = pageData ?  Object.assign(pageData,language[lang][pageName])  : Object.assign(language[lang][pageName]);
     };
@@ -36,10 +37,12 @@ export function merageLanguage(pageName,pageData) {
     deafultlang =  navigator.language == 'zh-CN' ? 'CH' : 'EN';
     //挂载提示语到全局上面
     if( localStorage.lang){
-        var lang =  localStorage.lang
+        var lang =  localStorage.lang;
+        lang == 'CH' ?moment.locale('zh_cn'):moment.locale('en')
         window.tips =language[lang].tips;
         pageData  = pageData ?  Object.assign(pageData,language[ lang][pageName])  : Object.assign(language[lang][pageName]);
     }else{
+        deafultlang == 'CH' ?moment.locale('zh_cn'):moment.locale('en')
         window.tips =language[deafultlang].tips;
         pageData  = pageData ?  Object.assign(pageData,language[deafultlang][pageName])  : Object.assign(language[deafultlang][pageName]);
     }
@@ -223,8 +226,21 @@ export function formate_amount (number) {
     var  numberString =String(number.toFixed(3));
     var   NewNumber = parseFloat(Number(numberString.substr(0,numberString.length-1)).toFixed(2));
     return  NewNumber
-
 }
+
+/*
+ *日期格式化
+ * @parmas
+ * number Number 待处理的数字
+ * */
+
+export function formate_time (timeStamp) {
+    timeStamp = String(timeStamp).length > 10 ? timeStamp/1000 : timeStamp;
+    console.log('当前日期的语言===>',moment.locale())
+  var time =   moment.unix(timeStamp).format('YYYY-MM-DD HH:mm')
+    return  time
+}
+
 
 
 

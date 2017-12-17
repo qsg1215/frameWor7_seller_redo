@@ -102,6 +102,13 @@ export default {
             near_week:'week',
             near_month:'month',
             custom:'custom',
+        },
+        booking:{
+            booking_order_list:'booking order list',
+            to_be_confirm:'to be confirm',
+            wait_pay:'wait pay',
+            comoleted:'comoleted',
+            canceled:'canceled'
         }
 
     },
@@ -204,6 +211,16 @@ export default {
             near_week:'近一周',
             near_month:'近一个月',
             custom:'自定义',
+        },
+        booking:{
+            booking_order_list:'定座订单列表',
+            to_be_confirm:'待结单',
+            wait_pay:'待支付',
+            comoleted:'已完成',
+            canceled:'已取消',
+            appointment:'预约',
+            reject_order:'拒单',
+            get_order:'接单'
         }
 
     }

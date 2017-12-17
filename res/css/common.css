@@ -363,6 +363,14 @@ div .item-inner.SHJ_good_info::after{
     border:none  !important;
 }
 
+/*
+订单列表中的电话格式
+*/
+.SHJ__phone_style{
+    width:44px;
+    text-align: center
+}
+
 
 
 

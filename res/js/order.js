@@ -6,10 +6,8 @@ import './category_management';
 import './store_manage';
 import './set_password';
 import './business_analysis';
+import  './booking'
 import templatePage from  './templatePage';
-
-
-
 //存在店铺的情况
 var orderPageScope = {};
 orderPageScope.initPage = function (getData,currentShop,change_language_data) {

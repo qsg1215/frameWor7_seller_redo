@@ -3,6 +3,7 @@
  */
 
 import 'framework7';
+import '../../bower_components/Framework7 3D Panels/dist/framework7.3dpanels.min'
 import {merageLanguage,tempaltePage} from '../../libs/js/Util';
 if(navigator.language == 'zh-CN'){
     var  modalTitle = '本地通',

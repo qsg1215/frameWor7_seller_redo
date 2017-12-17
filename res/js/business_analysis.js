@@ -9,6 +9,13 @@ import moment from 'moment'
 
 
 var business_analysis_scope = {};
+business_analysis_scope.bindEvent = function (shopId) {
+    $$('.business_analysis_time_select').click(function (shopId) {
+        var day = $$(this).data('day');
+        console.log('日期参数===>',day);
+        business_analysis_scope.initPage(day,shopId);
+    })
+}
 //计算比例尺(待优化算法)
 business_analysis_scope.calculateScale = function (data) {
 
@@ -115,8 +122,8 @@ business_analysis_scope.initPage = function (days,shopId) {
    var  howDays =   days ?  days : 3;
    var shopId  =  shopId ? shopId : sellerApp.globalData.currentShop.id;
    var postData = {
-       start: moment().unix(),
-       end: moment().unix() -86400*howDays,
+       end: moment().unix(),
+       start: moment().unix() -86400*howDays,
        shopId:business_analysis_scope.shopId
     }
     get_store_sale(postData).then(function (res) {
@@ -145,7 +152,7 @@ sellerApp.onPageInit("business_analysis", function(e) {
     var data = {};
     var  business_analysis_page =  merageLanguage('business_analysis',data);
     tempaltePage(business_analysis_page,'.page[data-page="business_analysis"]','business_analysis');
-
+    business_analysis_scope.bindEvent(sellerApp.globalData.currentShop.id);
 
 });
 

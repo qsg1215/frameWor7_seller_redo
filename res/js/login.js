@@ -4,7 +4,7 @@
 import {loadPage,$$} from '../../libs/js/Util';
 import {login} from '../../libs/js/API';
 import  './forget_passWord'
-import {sellerApp} from './init'
+import {sellerApp} from './init';
 /*
 * 事件绑定
 *
