@@ -176,6 +176,8 @@ export function get_goods_type(data) {
 }
 //统计电铺下面的菜品种类
 export function get_category_number(data) {
+
+
     const promise = new Promise(function(resolve, reject){
         axios(baseUrlConfigCate+'dishes/count/shop/'+data.shopId,requestConfig(data,'get'))
             .then(function(response) {
@@ -186,8 +188,128 @@ export function get_category_number(data) {
             });
     });
     return promise;
-}
+};
 
+//一次拿取所有数据
+export function get_order_page_data() {
+    const promise = new Promise(function(resolve, reject){
+    var allData = {};
+    function get_shop_List() {
+    var postData = {
+        id: sellerApp.globalData.userInfo.info.id,
+        role:sellerApp.globalData.userInfo.role
+    };
+    if(localStorage.lang){
+        var  lang = localStorage.lang == 'CH'? 'zh_CN' : 'en_US';
+    }else{
+        var lang  =  navigator.language == 'zh-CN' ? 'zh_CN' : 'en_US';
+    }
+    var token = localStorage.jwt;
+    var config = requestConfig(postData,'post',token);
+    config.headers.language = lang
+    const promise = new Promise(function(resolve, reject){
+        axios(baseUrlConfigCommon+'shop/get_shops_list',config)
+            .then(function(response) {
+                 //储存用户的店铺列表到全局
+                sellerApp.globalData.shopList = response.data.data;
+                sellerApp.globalData.currentShop = response.data.data[0];
+                resolve(response.data);
+            })
+            .catch(function (error) {
+                reject(error);
+            });
+    });
+    return promise;
+  };
+    function get_order_number_and_category(getData) {
+        function get_order_number(data,orderType) {
+            //设置默认值
+            data.status ? data.status = data.status :  data.status = 'S_WAITRECEIVE'
+            data.start ? data.start = data.start : data.start = 0;
+            data.limit ? data.limit = data.limit : data.limit = 10;
+
+            var token = localStorage.jwt;
+            var address ;
+            switch(orderType)
+            {
+                case 'TAKEAWAY':
+                    address =  'takeOutOrder/byShop'
+                    break;
+                case 'MEAL':
+                    address =  'mealOrder/byShop4Web'
+                    break;
+                case 'BOOKING':
+                    address = 'bookingOrder/byShop'
+                    break;
+                default:
+            };
+            return axios(baseUrlConfigCate+address,requestConfig(data,'get',token))
+                .then(function(response) {
+                    allData[orderType] =   response.data;
+                })
+                .catch(function (error) {
+                    reject(error);
+                });
+        };
+        function get_goods_type(data) {
+            return  axios(baseUrlConfigCate+'dishesType/shop/'+data.shopId,requestConfig(data,'get'))
+                .then(function(response) {
+                    var lang = requestConfig(data,'get').headers.language;
+                    if(lang == 'en_US'){
+                        response.data.data = response.data.data.map(function (item) {item.name  = item.nameEng;return item})
+                    }
+                    allData.categoryData = response.data;
+                })
+                .catch(function (error) {
+                    reject(error);
+                });
+        };
+        const promise = new Promise(function(resolve, reject){
+            axios.all([get_order_number(getData,'TAKEAWAY'),get_order_number(getData,'MEAL'),get_order_number(getData,'BOOKING') ,get_goods_type({shopId:getData.shopId})])
+                .then(axios.spread(function (acct, perms) {
+                   resolve(allData) // 两个请求现在都执行完成
+                }))
+                .catch(function (error) {
+                    reject(error);
+                });;
+        });
+        return promise;
+    }
+    function get_category_number(data) {
+        const promise = new Promise(function(resolve, reject){
+            axios(baseUrlConfigCate+'dishes/dishType/'+data.id,requestConfig(data,'get'))
+                .then(function(response) {
+                    allData.categoryListTypeData =  response.data;
+                    resolve(allData);
+                })
+                .catch(function (error) {
+                    reject(error);
+                });
+        });
+        return promise;
+    };
+    get_shop_List().then((res)=>{
+        allData.storeList = res;
+        return res.data[0].id;
+    })
+    .then((res)=>{
+       var getData = {shopId:res}
+        return  get_order_number_and_category(getData)
+    })
+    .then((res)=>{
+      var postData = {
+          id:res.categoryData.data[0].id
+      };
+      return get_category_number(postData)
+    }).
+        then((allData)=>{
+        resolve(allData)
+    }).catch(function (error) {
+        reject(error);
+    });
+    });
+    return promise;
+};
 
 //排序后的结果统计
 export function sort_category_number(data) {

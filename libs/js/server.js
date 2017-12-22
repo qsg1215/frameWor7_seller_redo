@@ -4,5 +4,5 @@
 
 export default {
     lineUrl: 'http://apiv2.saohuijia.com',
-    testUrl: 'http://172.18.0.50'
+    testUrl: 'http://172.18.0.50',
 }
